@@ -10,7 +10,9 @@ module.exports = config => {
     config.addFilter('dateFilter', dateFilter);
     config.addFilter('w3DateFilter', w3DateFilter);
 
-    // Returns work items, sorted by display order
+
+    // st data merging
+    config.setDataDeepMerge(true)
     // Returns work items, sorted by display order
     config.addCollection('work', collection => {
         return sortByDisplayOrder(collection.getFilteredByGlob('./src/work/*.md'));
@@ -26,13 +28,18 @@ module.exports = config => {
     config.addCollection('blog', collection => {
         return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
     });
+
+    //! DEBUG
+
     return {
         markdownTemplateEngine: 'njk',
         dataTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk',
         dir: {
             input: 'src',
-            output: 'dist'
+            output: 'dist',
+            includes: "_includes",
+            data: "_data",
         }
     };
 };

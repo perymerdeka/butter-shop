@@ -13,6 +13,7 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-cache-assets": "^2.3.0",
+    "@11ty/eleventy-fetch": "^5.0.1",
     "moment": "^2.30.1"
   }
 }
